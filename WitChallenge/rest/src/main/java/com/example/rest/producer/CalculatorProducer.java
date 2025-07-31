@@ -2,7 +2,6 @@ package com.example.rest.producer;
 
 import com.example.requests.CalculatorRequest;
 import com.example.responses.CalculatorResponse;
-import com.example.rest.controller.CalculatorController;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

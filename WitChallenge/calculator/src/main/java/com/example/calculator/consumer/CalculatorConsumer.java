@@ -4,7 +4,6 @@ import com.example.requests.CalculatorRequest;
 import com.example.responses.CalculatorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.slf4j.MDC;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -18,7 +17,7 @@ import java.math.RoundingMode;
 public class CalculatorConsumer {
     private static final Logger logger = LoggerFactory.getLogger(CalculatorConsumer.class);
 
-    @KafkaListener(topics = "${kafka.topics.calculator.requests}", groupId = "calculator-group")
+    @KafkaListener(topics = "${kafka.topics.calculator.requests}", groupId = "${kafka.groups.calculator}")
     @SendTo
     public CalculatorResponse listen(@Payload CalculatorRequest request, @Header(value = "requestId", required = false) String requestId) {
         BigDecimal result = BigDecimal.ZERO;

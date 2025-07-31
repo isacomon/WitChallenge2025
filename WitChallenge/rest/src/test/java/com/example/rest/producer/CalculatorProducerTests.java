@@ -11,10 +11,8 @@ import org.mockito.InjectMocks;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.MDC;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.requestreply.ReplyingKafkaTemplate;
 import org.springframework.kafka.requestreply.RequestReplyFuture;
-import org.springframework.messaging.Message;
 
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
