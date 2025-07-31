@@ -21,13 +21,13 @@ public class CalculatorConsumer {
     @KafkaListener(topics = "${kafka.topics.calculator.requests}", groupId = "calculator-group")
     @SendTo
     public CalculatorResponse listen(@Payload CalculatorRequest request, @Header(value = "requestId", required = false) String requestId) {
-        BigDecimal result = BigDecimal.valueOf(0);
+        BigDecimal result = BigDecimal.ZERO;
         logger.info("[{}] Received Calculator Request", requestId);
         switch (request.getOperation()) {
             case "ADD":
                 result = request.getValue1().add(request.getValue2());
                 break;
-            case "MUL":
+            case "MULT":
                 result = request.getValue1().multiply(request.getValue2());
                 break;
             case "SUB":

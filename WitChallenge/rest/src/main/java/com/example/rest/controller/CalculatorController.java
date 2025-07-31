@@ -33,20 +33,20 @@ public class CalculatorController {
     }
 
     @GetMapping("/mult")
-    public ResponseEntity<BigDecimal> multiplication(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
+    public ResponseEntity<CalculatorResponse> multiplication(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
         try {
             logger.info("[{}] Starting multiplication for {} and {}", MDC.get("requestId"), a, b);
-            return new ResponseEntity<>(producer.sendCalcRequest(new CalculatorRequest("MULT", a, b)).getResult(), HttpStatus.OK);
+            return new ResponseEntity<>(producer.sendCalcRequest(new CalculatorRequest("MULT", a, b)), HttpStatus.OK);
         } catch (Exception e) {
             logger.error("[{}] Error during multiplication for {} and {}: {}", MDC.get("requestId"), a, b, e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     @GetMapping("/sub")
-    public ResponseEntity<BigDecimal> subtraction(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
+    public ResponseEntity<CalculatorResponse> subtraction(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
         try {
             logger.info("[{}] Starting subtraction for {} and {}", MDC.get("requestId"), a, b);
-            return new ResponseEntity<>(producer.sendCalcRequest(new CalculatorRequest("SUB", a, b)).getResult(), HttpStatus.OK);
+            return new ResponseEntity<>(producer.sendCalcRequest(new CalculatorRequest("SUB", a, b)), HttpStatus.OK);
         } catch (Exception e) {
             logger.error("[{}] Error during subtraction for {} and {}: {}", MDC.get("requestId"), a, b, e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -54,10 +54,10 @@ public class CalculatorController {
     }
 
     @GetMapping("/div")
-    public ResponseEntity<BigDecimal> division(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
+    public ResponseEntity<CalculatorResponse> division(@RequestParam BigDecimal a, @RequestParam BigDecimal b) {
         try {
             logger.info("[{}] Starting division for {} and {}", MDC.get("requestId"), a, b);
-            return new ResponseEntity<>(producer.sendCalcRequest(new CalculatorRequest("DIV", a, b)).getResult(), HttpStatus.OK);
+            return new ResponseEntity<>(producer.sendCalcRequest(new CalculatorRequest("DIV", a, b)), HttpStatus.OK);
         } catch (Exception e) {
             logger.error("[{}] Error during division for {} and {}: {}", MDC.get("requestId"), a, b, e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

@@ -29,7 +29,6 @@ public class UniqueIdFilter extends OncePerRequestFilter {
         }
 
         MDC.put(MDC_REQUEST_ID_KEY, requestId);
-
         response.addHeader(REQUEST_ID_HEADER, requestId);
 
         try {
