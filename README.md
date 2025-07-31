@@ -60,7 +60,7 @@ Example requests:
 
 ***Division:***
 
-```http://localhost:8081/div?a=-1.352345425&b=3.45435654```\
+```http://localhost:8081/div?a=-1.352345425&b=3.45435654```
 ```
 {
     "result": -0.3914898214
