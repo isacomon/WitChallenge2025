@@ -35,9 +35,7 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
-
     </dependencies>
-
     <build>
     </build>
     <packaging>pom</packaging>
